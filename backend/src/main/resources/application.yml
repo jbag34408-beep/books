@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/movie}
+    username: ${DB_USERNAME:movie}
+    password: ${DB_PASSWORD} # no default on purpose: set the env var
+  jpa:
+    hibernate:
+      ddl-auto: validate # schema is owned by Flyway (db/migration)
+    open-in-view: false
+  data:
+    web:
+      pageable:
+        max-page-size: 100
+
+app:
+  cors-origin: http://localhost:5173
